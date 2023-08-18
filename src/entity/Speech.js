@@ -9,7 +9,7 @@ export default class Speech extends Phaser.GameObjects.Container {
         this.bubble.setScale(0.1);
         this.add(this.bubble);
 
-        this.messageText = scene.add.text(-30, -30, message, { fontSize: '14px', fill: "#000", fontFamily: 'Georgia,serif' });
+        this.messageText = scene.add.text(-35, -40, message, { fontSize: '14px', fill: "#000", fontFamily: 'Georgia,serif' });
         this.add(this.messageText);
 
         this.setVisible(false);
@@ -28,8 +28,8 @@ export default class Speech extends Phaser.GameObjects.Container {
     }
 
     update(x, y) {
-        this.x = x + 90;
-        this.y = y - 90;
+        this.x = x + 95;
+        this.y = y - 100;
     }
 }
 

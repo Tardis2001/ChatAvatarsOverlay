@@ -5,7 +5,6 @@ import Ball from './Ball.js';
 export default class Player {
     constructor(scene, username) {
         this.scene = scene;
-        this.username = username;
         this.dino = new Dino(scene, Phaser.Math.Between(0, 800), Phaser.Math.Between(0, 200));
         this.Speech = new Speech(scene, this.dino.x, this.dino.y, '');
         this.scene.physics.add.collider(this.dino,this.scene.ground)
@@ -14,6 +13,8 @@ export default class Player {
             endX: 750,
             direction: 1
         };
+        
+        this.username = this.scene.add.text(this.dino.x,this.dino.y - 15, username, { fontSize: '12px', fill: "#FFF", fontFamily: 'Georgia,serif' })
     }
 
     handleMessage(message) {
@@ -33,6 +34,9 @@ export default class Player {
     update() {
         this.dino.update(this.spriteInfo);
         this.Speech.update(this.dino.x, this.dino.y);
+        this.username.x = this.dino.x - 20
+        this.username.y = this.dino.y - 40
+
     }
 
     throwBall() {
